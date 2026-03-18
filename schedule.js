@@ -27,6 +27,7 @@ function loadCalendlyScript() {
 
 if (bookingShell) {
   const calendlyUrl = (bookingShell.dataset.calendlyUrl || "").trim();
+  const isDemoBooking = /calendly\.com\/chooseademo/i.test(calendlyUrl);
   const bookingLink = document.getElementById("booking-link");
   const bookingStatus = document.getElementById("booking-status");
   const embedWrap = document.getElementById("booking-embed-wrap");
@@ -37,9 +38,11 @@ if (bookingShell) {
     if (calendlyUrl) {
       bookingLink.href = calendlyUrl;
       bookingLink.removeAttribute("aria-disabled");
+      bookingLink.textContent = isDemoBooking ? "Open Demo Booking Page" : "Open Booking Page";
     } else {
       bookingLink.href = "#";
       bookingLink.setAttribute("aria-disabled", "true");
+      bookingLink.textContent = "Open Booking Page";
       bookingLink.addEventListener("click", (event) => {
         event.preventDefault();
       });
@@ -47,9 +50,13 @@ if (bookingShell) {
   }
 
   if (bookingStatus) {
-    bookingStatus.textContent = calendlyUrl
-      ? "Online booking is connected. You can choose a live time below or open the booking page in a new tab."
-      : "Calendly booking link not configured yet. Review the weekly appointment hours below and call the office to request a time.";
+    if (calendlyUrl && isDemoBooking) {
+      bookingStatus.textContent = "Demo booking preview is active. Replace this Calendly link with the clinic's real scheduling URL when you are ready to go live.";
+    } else if (calendlyUrl) {
+      bookingStatus.textContent = "Online booking is connected. You can choose a live time below or open the booking page in a new tab.";
+    } else {
+      bookingStatus.textContent = "Calendly booking link not configured yet. Review the weekly appointment hours below and call the office to request a time.";
+    }
   }
 
   if (placeholder) {
