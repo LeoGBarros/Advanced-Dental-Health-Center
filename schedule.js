@@ -74,6 +74,7 @@ if (bookingShell) {
         window.Calendly.initInlineWidget({
           url: calendlyUrl,
           parentElement: embedRoot,
+          resize: true,
         });
       })
       .catch(() => {
