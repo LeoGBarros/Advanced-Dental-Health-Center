@@ -25,7 +25,7 @@ if (googleBooking) {
   if (bookingStatus) {
     bookingStatus.textContent = bookingUrl
       ? "Google Calendar booking is connected. You can book directly here or open the booking page in a new tab."
-      : "Google Calendar booking link not configured yet. Add the clinic's booking URL to activate this page.";
+      : "Google Calendar booking link not configured yet. Review the weekly appointment hours below and call the office to request a time.";
   }
 
   if (embedWrap && embedFrame && embedUrl) {

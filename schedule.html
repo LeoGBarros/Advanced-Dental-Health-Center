@@ -71,7 +71,7 @@
             <p class="eyebrow">Online Booking</p>
             <h2>Schedule with our Google Calendar booking page.</h2>
             <p>
-              Once the clinic's Google booking link is connected, patients will be able to choose the visit type, pick an available time, and complete their booking directly through Google Calendar.
+              While the clinic's Google booking link is being connected, you can review our standard weekly appointment hours below and call the office to request a time that works for you.
             </p>
           </div>
 
@@ -84,6 +84,73 @@
               <a class="button" id="google-booking-link" href="#" target="_blank" rel="noreferrer">Open Booking Page</a>
               <a class="button button-secondary" href="tel:+16292630639">Call Instead</a>
             </div>
+
+            <section class="schedule-weekly-availability" aria-labelledby="weekly-availability-title">
+              <div class="schedule-weekly-head">
+                <h3 id="weekly-availability-title">Weekly availability at a glance</h3>
+                <p>
+                  These are the clinic's regular appointment windows. Final availability may vary based on holidays, existing bookings, and treatment length.
+                </p>
+              </div>
+
+              <div class="schedule-weekly-grid">
+                <article class="schedule-weekly-card">
+                  <div>
+                    <p class="schedule-weekly-day">Monday</p>
+                    <p class="schedule-weekly-time">8:00 AM - 5:00 PM</p>
+                  </div>
+                  <span class="schedule-weekly-badge">Open</span>
+                </article>
+
+                <article class="schedule-weekly-card">
+                  <div>
+                    <p class="schedule-weekly-day">Tuesday</p>
+                    <p class="schedule-weekly-time">7:00 AM - 4:00 PM</p>
+                  </div>
+                  <span class="schedule-weekly-badge">Open</span>
+                </article>
+
+                <article class="schedule-weekly-card">
+                  <div>
+                    <p class="schedule-weekly-day">Wednesday</p>
+                    <p class="schedule-weekly-time">7:00 AM - 5:00 PM</p>
+                  </div>
+                  <span class="schedule-weekly-badge">Open</span>
+                </article>
+
+                <article class="schedule-weekly-card">
+                  <div>
+                    <p class="schedule-weekly-day">Thursday</p>
+                    <p class="schedule-weekly-time">7:00 AM - 4:00 PM</p>
+                  </div>
+                  <span class="schedule-weekly-badge">Open</span>
+                </article>
+
+                <article class="schedule-weekly-card schedule-weekly-card-closed">
+                  <div>
+                    <p class="schedule-weekly-day">Friday</p>
+                    <p class="schedule-weekly-time">Closed</p>
+                  </div>
+                  <span class="schedule-weekly-badge schedule-weekly-badge-closed">Closed</span>
+                </article>
+
+                <article class="schedule-weekly-card schedule-weekly-card-closed">
+                  <div>
+                    <p class="schedule-weekly-day">Saturday</p>
+                    <p class="schedule-weekly-time">Closed</p>
+                  </div>
+                  <span class="schedule-weekly-badge schedule-weekly-badge-closed">Closed</span>
+                </article>
+
+                <article class="schedule-weekly-card schedule-weekly-card-closed">
+                  <div>
+                    <p class="schedule-weekly-day">Sunday</p>
+                    <p class="schedule-weekly-time">Closed</p>
+                  </div>
+                  <span class="schedule-weekly-badge schedule-weekly-badge-closed">Closed</span>
+                </article>
+              </div>
+            </section>
 
             <p class="schedule-note" id="google-booking-status">
               Google Calendar booking link not configured yet. Add the clinic's booking URL to activate this page.
@@ -102,7 +169,7 @@
             <div class="schedule-placeholder" id="google-booking-placeholder">
               <h3>Booking page placeholder</h3>
               <p>
-                Replace the data attributes for the booking URL and optional embed URL in <code>schedule.html</code> with the official Google Calendar appointment schedule link from the clinic.
+                Replace the data attributes for the booking URL and optional embed URL in <code>schedule.html</code> with the official Google Calendar appointment schedule link from the clinic to show real-time openings here.
               </p>
               <ul class="schedule-placeholder-list">
                 <li>Create the appointment schedule inside Google Calendar.</li>

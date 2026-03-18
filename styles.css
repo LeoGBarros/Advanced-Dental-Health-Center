@@ -1267,6 +1267,81 @@ textarea {
   margin-top: 0.55rem;
 }
 
+.schedule-weekly-availability {
+  display: grid;
+  gap: 1rem;
+  padding: 1.25rem;
+  border: 1px solid rgba(230, 221, 208, 0.8);
+  border-radius: var(--radius-sm);
+  background: linear-gradient(180deg, #ffffff 0%, #f8fbfd 100%);
+}
+
+.schedule-weekly-head {
+  display: grid;
+  gap: 0.4rem;
+}
+
+.schedule-weekly-head h3,
+.schedule-weekly-day,
+.schedule-weekly-time {
+  margin: 0;
+}
+
+.schedule-weekly-head h3 {
+  font-size: 1.15rem;
+}
+
+.schedule-weekly-head p {
+  margin: 0;
+  color: var(--muted);
+}
+
+.schedule-weekly-grid {
+  display: grid;
+  gap: 0.85rem;
+}
+
+.schedule-weekly-card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 1rem 1.1rem;
+  border: 1px solid rgba(217, 226, 232, 0.95);
+  border-radius: 18px;
+  background: #fff;
+}
+
+.schedule-weekly-card-closed {
+  background: #f8fafc;
+}
+
+.schedule-weekly-day {
+  font-weight: 700;
+  color: var(--text);
+}
+
+.schedule-weekly-time {
+  color: var(--muted);
+}
+
+.schedule-weekly-badge {
+  flex-shrink: 0;
+  padding: 0.45rem 0.8rem;
+  border-radius: 999px;
+  background: #e8f8ec;
+  color: #2d7a4a;
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+}
+
+.schedule-weekly-badge-closed {
+  background: #eef2f5;
+  color: #667789;
+}
+
 @keyframes fadeUp {
   from {
     opacity: 0;
@@ -1282,6 +1357,10 @@ textarea {
   .schedule-booking-actions {
     flex-direction: row;
     flex-wrap: wrap;
+  }
+
+  .schedule-weekly-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
   .schedule-steps {
@@ -1384,6 +1463,10 @@ textarea {
 
   .schedule-booking-card {
     padding: 2rem;
+  }
+
+  .schedule-weekly-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 
   .schedule-shell {
