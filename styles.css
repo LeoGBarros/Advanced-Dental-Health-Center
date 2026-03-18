@@ -1,0 +1,1408 @@
+:root {
+  --bg: #ffffff;
+  --bg-soft: #f7fafc;
+  --text: #20313f;
+  --muted: #72808d;
+  --line: #e6ddd0;
+  --primary: #6fbadf;
+  --primary-dark: #3c95c1;
+  --accent: #c8ab7c;
+  --card: #ffffff;
+  --shadow: 0 20px 50px rgba(31, 61, 84, 0.08);
+  --radius: 24px;
+  --radius-sm: 16px;
+  --container: 1180px;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: "Inter", sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.6;
+}
+
+img,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button,
+input,
+textarea {
+  font: inherit;
+}
+
+.skip-link,
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.skip-link:focus {
+  width: auto;
+  height: auto;
+  margin: 1rem;
+  clip: auto;
+  padding: 0.75rem 1rem;
+  background: var(--primary);
+  color: #fff;
+  border-radius: 999px;
+  z-index: 1000;
+}
+
+.container {
+  width: min(calc(100% - 2rem), var(--container));
+  margin: 0 auto;
+}
+
+.section {
+  padding: 4.5rem 0;
+}
+
+.section-muted {
+  background: var(--bg-soft);
+}
+
+.section-accent {
+  background: linear-gradient(180deg, #f8fbfd 0%, #ffffff 100%);
+}
+
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin: 0 0 1rem;
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--primary-dark);
+}
+
+.eyebrow::before {
+  content: "";
+  width: 2.5rem;
+  height: 1px;
+  background: var(--accent);
+}
+
+.section-heading {
+  max-width: 44rem;
+  margin-bottom: 2rem;
+}
+
+.section-heading h2,
+.hero h1,
+.about-copy h2,
+.contact-copy h2 {
+  margin: 0 0 1rem;
+  line-height: 1.15;
+  letter-spacing: -0.03em;
+}
+
+.hero h1 {
+  font-size: clamp(2.4rem, 7vw, 4.7rem);
+}
+
+.section-heading h2,
+.about-copy h2,
+.contact-copy h2 {
+  font-size: clamp(2rem, 5vw, 3rem);
+}
+
+.section-heading p,
+.hero-lead,
+.about-copy p,
+.contact-copy p,
+.site-footer p,
+.service-card p,
+.testimonial-card p,
+.about-points p,
+.hero-stats span,
+.hero-panel p,
+.form-note,
+.contact-list,
+.site-menu a {
+  color: var(--muted);
+}
+
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(255, 255, 255, 0.94);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(230, 221, 208, 0.6);
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  min-height: 4.4rem;
+}
+
+.brand {
+  display: inline-flex;
+  align-items: center;
+  max-width: min(48vw, 205px);
+}
+
+.brand-logo {
+  display: block;
+  width: 100%;
+  height: auto;
+  filter: brightness(0) saturate(100%);
+}
+
+.footer-brand {
+  max-width: 280px;
+  margin-bottom: 1rem;
+}
+
+.footer-brand .brand-logo {
+  filter: brightness(0) saturate(100%);
+}
+
+.site-menu {
+  position: absolute;
+  top: calc(100% + 0.75rem);
+  left: 1rem;
+  right: 1rem;
+  display: none;
+  flex-direction: column;
+  padding: 1rem;
+  background: rgba(255, 255, 255, 0.98);
+  border: 1px solid rgba(230, 221, 208, 0.85);
+  border-radius: var(--radius-sm);
+  box-shadow: var(--shadow);
+}
+
+.site-menu.is-open {
+  display: flex;
+}
+
+.site-menu a {
+  padding: 0.75rem 0;
+  font-weight: 600;
+}
+
+.menu-toggle {
+  display: inline-flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  border: 0;
+  background: transparent;
+  padding: 0.25rem;
+  cursor: pointer;
+}
+
+.menu-toggle span:not(.sr-only) {
+  width: 1.35rem;
+  height: 2px;
+  background: var(--text);
+  border-radius: 999px;
+}
+
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 3.25rem;
+  padding: 0.9rem 1.35rem;
+  border: 0;
+  border-radius: 999px;
+  background: var(--primary);
+  color: #fff;
+  font-weight: 700;
+  transition: transform 0.2s ease, background 0.2s ease, box-shadow 0.2s ease;
+  box-shadow: 0 16px 40px rgba(111, 186, 223, 0.25);
+}
+
+.button:hover,
+.button:focus-visible {
+  background: var(--primary-dark);
+  transform: translateY(-1px);
+}
+
+.button-secondary {
+  background: transparent;
+  color: var(--text);
+  border: 1px solid var(--line);
+  box-shadow: none;
+}
+
+.button-secondary:hover,
+.button-secondary:focus-visible {
+  background: #faf7f2;
+}
+
+.button-small {
+  min-height: auto;
+  padding: 0.7rem 0.9rem;
+}
+
+.phone-cta {
+  gap: 0.55rem;
+}
+
+.phone-cta svg {
+  width: 1rem;
+  height: 1rem;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.hero {
+  padding-top: 3rem;
+  background:
+    radial-gradient(circle at top left, rgba(111, 186, 223, 0.18), transparent 28%),
+    radial-gradient(circle at bottom right, rgba(200, 171, 124, 0.14), transparent 25%);
+}
+
+.hero-grid,
+.about-grid,
+.hours-grid,
+.contact-grid,
+.footer-grid {
+  display: grid;
+  gap: 1.5rem;
+}
+
+.hero-copy,
+.hero-card,
+.about-copy,
+.about-side,
+.about-points,
+.hours-copy,
+.hours-card,
+.contact-copy,
+.contact-form,
+.map-wrap iframe,
+.testimonial-card,
+.service-card {
+  animation: fadeUp 0.7s ease both;
+}
+
+.hero-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 0.9rem;
+  margin-top: 1.75rem;
+}
+
+.hero-highlights,
+.contact-list {
+  list-style: none;
+  padding: 0;
+  margin: 1.75rem 0 0;
+}
+
+.about-actions {
+  margin-top: 1.75rem;
+}
+
+.contact-actions {
+  margin-top: 1.5rem;
+}
+
+.hero-highlights li,
+.contact-list li {
+  position: relative;
+  padding-left: 1.4rem;
+  margin-bottom: 0.75rem;
+}
+
+.hero-highlights li::before,
+.contact-list li::before {
+  content: "";
+  position: absolute;
+  top: 0.7rem;
+  left: 0;
+  width: 0.55rem;
+  height: 0.55rem;
+  border-radius: 50%;
+  background: var(--accent);
+}
+
+.hero-card {
+  display: grid;
+  gap: 1rem;
+}
+
+.hero-image-wrap,
+.section-showcase,
+.about-image-wrap {
+  overflow: hidden;
+  border: 1px solid rgba(230, 221, 208, 0.8);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  background: var(--card);
+}
+
+.hero-image-wrap img,
+.section-showcase img,
+.about-image-wrap img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.hero-image-wrap {
+  aspect-ratio: 16 / 11;
+}
+
+.section-showcase {
+  margin-bottom: 1.5rem;
+  aspect-ratio: 16 / 6;
+}
+
+.about-side {
+  display: grid;
+  gap: 1rem;
+}
+
+.about-image-wrap {
+  aspect-ratio: 4 / 3;
+}
+
+.hero-panel,
+.hero-stats,
+.service-card,
+.testimonial-card,
+.about-points article,
+.hours-card,
+.contact-form,
+.map-wrap {
+  background: var(--card);
+  border: 1px solid rgba(230, 221, 208, 0.8);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+}
+
+.hero-panel,
+.contact-form,
+.testimonial-card,
+.hours-card,
+.about-points article {
+  padding: 1.5rem;
+}
+
+.hours-card {
+  display: grid;
+  gap: 0.2rem;
+}
+
+.hours-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.95rem 0;
+  border-bottom: 1px solid rgba(230, 221, 208, 0.8);
+}
+
+.hours-row:last-child {
+  padding-bottom: 0;
+  border-bottom: 0;
+}
+
+.hours-row:first-child {
+  padding-top: 0;
+}
+
+.hours-day {
+  font-weight: 700;
+  color: var(--text);
+}
+
+.hours-time {
+  color: var(--muted);
+  text-align: right;
+}
+
+.hero-panel h2 {
+  margin: 0 0 0.75rem;
+  font-size: 1.5rem;
+}
+
+.panel-label {
+  display: inline-block;
+  margin-bottom: 0.75rem;
+  padding: 0.35rem 0.75rem;
+  border-radius: 999px;
+  background: #f5fafc;
+  color: var(--primary-dark);
+  font-size: 0.85rem;
+  font-weight: 700;
+}
+
+.hero-card-links {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  margin-top: 1.25rem;
+}
+
+.hero-card-links a {
+  color: var(--primary-dark);
+  font-weight: 700;
+}
+
+.hero-stats {
+  display: grid;
+  gap: 1rem;
+  padding: 1.25rem 1.5rem;
+}
+
+.hero-stats strong {
+  display: block;
+  margin-bottom: 0.35rem;
+  font-size: 1.05rem;
+}
+
+.services-grid,
+.testimonials-grid {
+  display: grid;
+  gap: 1rem;
+}
+
+.reviews-cta-card {
+  display: grid;
+  gap: 1.25rem;
+  align-items: center;
+  margin-bottom: 1.5rem;
+  padding: 1.5rem;
+  background: linear-gradient(135deg, #ffffff 0%, #f4f9fc 100%);
+  border: 1px solid rgba(230, 221, 208, 0.8);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+}
+
+.reviews-label {
+  margin: 0 0 0.5rem;
+  color: var(--primary-dark);
+  font-size: 0.9rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.reviews-cta-card h3 {
+  margin: 0 0 0.6rem;
+  font-size: 1.4rem;
+}
+
+.reviews-cta-card p:last-child {
+  margin-bottom: 0;
+}
+
+.service-card {
+  padding: 1.4rem;
+}
+
+.service-icon {
+  display: grid;
+  place-items: center;
+  width: 3rem;
+  height: 3rem;
+  margin-bottom: 1rem;
+  border-radius: 1rem;
+  background: #eef7fb;
+  color: var(--primary-dark);
+}
+
+.service-icon svg {
+  width: 1.4rem;
+  height: 1.4rem;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.service-card h3,
+.about-points h3,
+.contact-form h3 {
+  margin: 0 0 0.65rem;
+  font-size: 1.15rem;
+}
+
+.about-points {
+  display: grid;
+  gap: 1rem;
+}
+
+.testimonial-card {
+  display: flex;
+  flex-direction: column;
+  gap: 1.1rem;
+  padding: 1.5rem;
+  border-radius: 18px;
+}
+
+.review-meta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.review-stars {
+  display: inline-flex;
+  gap: 0.15rem;
+  color: #f4b400;
+  font-size: 1rem;
+  letter-spacing: 0.02em;
+}
+
+.review-time {
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+.review-text {
+  margin: 0;
+  color: var(--text);
+  font-size: 1rem;
+  line-height: 1.8;
+}
+
+.review-author {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  margin-top: auto;
+}
+
+.review-avatar {
+  display: grid;
+  place-items: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 50%;
+  background: #eef1f4;
+  color: var(--text);
+  font-weight: 700;
+}
+
+.review-author strong {
+  color: var(--text);
+  font-size: 1rem;
+}
+
+.contact-form {
+  display: grid;
+  gap: 0.95rem;
+}
+
+.contact-form label {
+  display: grid;
+  gap: 0.45rem;
+  font-weight: 600;
+}
+
+.contact-form input,
+.contact-form textarea {
+  width: 100%;
+  padding: 0.95rem 1rem;
+  border: 1px solid #d9e2e8;
+  border-radius: 1rem;
+  background: #fff;
+  color: var(--text);
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+  outline: 2px solid rgba(111, 186, 223, 0.25);
+  border-color: var(--primary);
+}
+
+.form-note,
+.form-success {
+  margin: 0;
+  font-size: 0.95rem;
+}
+
+.form-success {
+  color: #2d7a4a;
+  font-weight: 600;
+}
+
+.map-wrap {
+  margin-top: 1.5rem;
+  overflow: hidden;
+}
+
+.map-wrap iframe {
+  width: 100%;
+  min-height: 320px;
+  border: 0;
+}
+
+.site-footer {
+  padding: 2rem 0;
+  border-top: 1px solid rgba(230, 221, 208, 0.8);
+  background: #fbfcfd;
+}
+
+.footer-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.footer-links a {
+  color: var(--primary-dark);
+  font-weight: 700;
+}
+
+.page-hero {
+  padding-top: 3rem;
+  background:
+    radial-gradient(circle at top left, rgba(111, 186, 223, 0.18), transparent 28%),
+    radial-gradient(circle at bottom right, rgba(200, 171, 124, 0.14), transparent 25%);
+}
+
+.page-hero-copy {
+  max-width: 48rem;
+}
+
+.page-hero-copy p {
+  color: var(--muted);
+}
+
+.schedule-shell {
+  display: grid;
+  gap: 1.75rem;
+  padding: 1.5rem;
+  background: var(--card);
+  border: 1px solid rgba(230, 221, 208, 0.8);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+}
+
+.schedule-steps {
+  display: grid;
+  gap: 0.75rem;
+}
+
+.schedule-step {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  align-items: center;
+  gap: 0.8rem;
+  color: var(--muted);
+}
+
+.schedule-step-dot {
+  display: grid;
+  place-items: center;
+  width: 2rem;
+  height: 2rem;
+  border-radius: 50%;
+  background: #e9eef2;
+  color: var(--text);
+  font-weight: 700;
+}
+
+.schedule-step-label {
+  font-weight: 700;
+}
+
+.schedule-step.is-active .schedule-step-dot,
+.schedule-step.is-complete .schedule-step-dot {
+  background: var(--primary);
+  color: #fff;
+}
+
+.schedule-step.is-active .schedule-step-label {
+  color: var(--text);
+}
+
+.schedule-panel {
+  display: none;
+}
+
+.schedule-panel.is-active {
+  display: grid;
+  gap: 1.5rem;
+}
+
+.schedule-intro {
+  display: grid;
+  gap: 1rem;
+}
+
+.schedule-intro h2 {
+  margin: 0;
+  font-size: clamp(1.7rem, 4vw, 2.4rem);
+}
+
+.schedule-intro p,
+.schedule-types-head p,
+.schedule-note,
+.schedule-summary {
+  margin: 0;
+  color: var(--muted);
+}
+
+.schedule-alert {
+  padding: 1rem 1.1rem;
+  border-radius: var(--radius-sm);
+  font-weight: 500;
+}
+
+.schedule-alert-warning {
+  background: #fff6c9;
+  color: #6c5d18;
+}
+
+.schedule-alert-info {
+  background: #eaf7fd;
+  color: #255f7b;
+}
+
+.schedule-alert-success {
+  background: #e8f8ec;
+  color: #2d7a4a;
+}
+
+.patient-toggle {
+  display: grid;
+  gap: 0.9rem;
+  padding: 1.25rem;
+  background: #fbfdfe;
+  border: 1px solid rgba(230, 221, 208, 0.8);
+  border-radius: var(--radius-sm);
+}
+
+.patient-toggle-title {
+  margin: 0;
+  font-weight: 700;
+}
+
+.patient-toggle-options {
+  display: grid;
+  gap: 0.75rem;
+}
+
+.patient-option {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.9rem 1rem;
+  border: 1px solid rgba(217, 226, 232, 0.9);
+  border-radius: 14px;
+  background: #fff;
+  cursor: pointer;
+}
+
+.patient-option input {
+  margin: 0;
+}
+
+.patient-option strong {
+  color: var(--text);
+}
+
+.schedule-types-head {
+  display: grid;
+  gap: 0.35rem;
+}
+
+.schedule-types-head h2 {
+  margin: 0;
+  font-size: clamp(1.8rem, 4vw, 2.6rem);
+}
+
+.schedule-types-grid {
+  display: grid;
+  gap: 1rem;
+}
+
+.schedule-type-card {
+  display: grid;
+  justify-items: start;
+  gap: 0.8rem;
+  padding: 1.35rem;
+  border: 1px solid rgba(217, 226, 232, 0.95);
+  border-radius: var(--radius-sm);
+  background: #fff;
+  color: inherit;
+  text-align: left;
+  cursor: pointer;
+  transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+}
+
+.schedule-type-card:hover,
+.schedule-type-card:focus-visible {
+  transform: translateY(-2px);
+  border-color: rgba(111, 186, 223, 0.7);
+  box-shadow: 0 16px 40px rgba(31, 61, 84, 0.08);
+}
+
+.schedule-type-card.is-selected {
+  background: #eef8fc;
+  border-color: var(--primary);
+  box-shadow: 0 18px 42px rgba(111, 186, 223, 0.18);
+}
+
+.schedule-type-card strong {
+  font-size: 1.05rem;
+}
+
+.schedule-type-card span:last-child {
+  color: var(--muted);
+}
+
+.schedule-type-icon {
+  display: grid;
+  place-items: center;
+  width: 3rem;
+  height: 3rem;
+  border-radius: 50%;
+  background: #eef7fb;
+  color: var(--primary-dark);
+}
+
+.schedule-type-icon svg {
+  width: 1.35rem;
+  height: 1.35rem;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.schedule-type-icon-danger {
+  background: #fff0f1;
+  color: #c85c68;
+}
+
+.schedule-type-icon-neutral {
+  background: #f3f5f8;
+  color: #59687a;
+}
+
+.schedule-type-icon-accent {
+  background: #f8f1e7;
+  color: #a87f49;
+}
+
+.schedule-slots {
+  display: grid;
+  gap: 1.5rem;
+}
+
+.schedule-month {
+  display: grid;
+  gap: 0.8rem;
+}
+
+.schedule-month h3 {
+  margin: 0;
+  color: var(--primary-dark);
+  font-size: 1.1rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.schedule-day-row {
+  display: grid;
+  gap: 0.9rem;
+  padding: 1rem;
+  background: #fff;
+  border: 1px solid rgba(217, 226, 232, 0.95);
+  border-radius: var(--radius-sm);
+}
+
+.schedule-day-label {
+  font-weight: 700;
+  color: var(--text);
+}
+
+.schedule-slot-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.schedule-slot {
+  min-width: 7rem;
+  padding: 0.85rem 1rem;
+  border: 1px solid rgba(217, 226, 232, 0.95);
+  border-radius: 14px;
+  background: #f7fafc;
+  color: var(--text);
+  font-weight: 700;
+  cursor: pointer;
+  transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
+}
+
+.schedule-slot:hover,
+.schedule-slot:focus-visible {
+  transform: translateY(-1px);
+  border-color: rgba(111, 186, 223, 0.7);
+}
+
+.schedule-slot.is-selected {
+  background: var(--primary);
+  border-color: var(--primary);
+  color: #fff;
+}
+
+.schedule-form-grid {
+  display: grid;
+  gap: 1rem;
+}
+
+.schedule-form-grid label {
+  display: grid;
+  gap: 0.45rem;
+  font-weight: 600;
+}
+
+.schedule-form-grid input,
+.schedule-form-grid textarea {
+  width: 100%;
+  padding: 0.95rem 1rem;
+  border: 1px solid #d9e2e8;
+  border-radius: 1rem;
+  background: #fff;
+  color: var(--text);
+}
+
+.schedule-form-grid input:focus,
+.schedule-form-grid textarea:focus {
+  outline: 2px solid rgba(111, 186, 223, 0.25);
+  border-color: var(--primary);
+}
+
+.schedule-form-full {
+  grid-column: 1 / -1;
+}
+
+.schedule-choice-group {
+  display: grid;
+  gap: 0.85rem;
+  padding-top: 0.5rem;
+}
+
+.schedule-choice-group h3 {
+  margin: 0;
+  font-size: 1.5rem;
+}
+
+.schedule-choice {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  font-weight: 500;
+}
+
+.schedule-choice input {
+  margin: 0;
+}
+
+.schedule-actions {
+  display: flex;
+  flex-direction: column-reverse;
+  gap: 0.9rem;
+}
+
+.schedule-note {
+  font-size: 0.95rem;
+}
+
+.back-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 1.25rem;
+  color: var(--primary-dark);
+  font-weight: 700;
+}
+
+.doctor-grid {
+  display: grid;
+  gap: 3rem;
+}
+
+.doctor-card {
+  padding: 0;
+  background: transparent;
+  border: 0;
+  box-shadow: none;
+  overflow: visible;
+}
+
+.doctor-kicker {
+  display: inline-block;
+  margin-bottom: 0.3rem;
+  color: var(--accent);
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.doctor-layout {
+  display: grid;
+  gap: 1.25rem;
+  align-items: start;
+}
+
+.doctor-visual {
+  position: relative;
+  width: fit-content;
+}
+
+.doctor-image-wrap {
+  position: relative;
+  margin: 0;
+  aspect-ratio: 1 / 1;
+  width: min(100%, 320px);
+  border: 1px solid rgba(255, 255, 255, 0.85);
+  border-radius: 4px;
+  background: #d9d3cc;
+  overflow: hidden;
+}
+
+.doctor-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.doctor-orb {
+  position: absolute;
+  border-radius: 50%;
+  background: #c6a56b;
+  border: 1px solid rgba(255, 255, 255, 0.75);
+}
+
+.doctor-orb-small {
+  width: 18px;
+  height: 18px;
+  left: -8px;
+  bottom: 18px;
+}
+
+.doctor-orb-large {
+  width: 30px;
+  height: 30px;
+  left: 28px;
+  bottom: -12px;
+}
+
+.doctor-header {
+  margin-bottom: 0.9rem;
+}
+
+.doctor-header h2 {
+  margin: 0;
+  font-size: clamp(1.9rem, 4vw, 2.5rem);
+  line-height: 1.15;
+}
+
+.doctor-quote {
+  margin: 0 0 0.5rem;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: var(--text);
+  font-weight: 500;
+  line-height: 1.8;
+}
+
+.doctor-content {
+  display: grid;
+  gap: 1.3rem;
+}
+
+.doctor-section h3 {
+  margin: 0 0 0.65rem;
+  font-size: 1.3rem;
+}
+
+.doctor-section p {
+  margin: 0 0 1rem;
+  color: var(--muted);
+  line-height: 1.75;
+}
+
+.doctor-section p:last-child {
+  margin-bottom: 0;
+}
+
+.doctor-list {
+  margin: 0;
+  padding-left: 0;
+  list-style: none;
+  color: var(--muted);
+}
+
+.doctor-list li + li {
+  margin-top: 0.75rem;
+}
+
+.doctor-list strong {
+  color: var(--text);
+}
+
+.schedule-booking-shell {
+  display: grid;
+  gap: 1.5rem;
+}
+
+.schedule-booking-copy {
+  max-width: 42rem;
+}
+
+.schedule-booking-copy h2 {
+  margin: 0 0 0.9rem;
+  font-size: clamp(2rem, 5vw, 3rem);
+  line-height: 1.15;
+  letter-spacing: -0.03em;
+}
+
+.schedule-booking-copy p:last-child {
+  margin: 0;
+  color: var(--muted);
+}
+
+.schedule-booking-card {
+  display: grid;
+  gap: 1.25rem;
+  padding: 1.5rem;
+  background: var(--card);
+  border: 1px solid rgba(230, 221, 208, 0.8);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+}
+
+.schedule-booking-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 0.9rem;
+}
+
+.schedule-booking-actions .button[aria-disabled="true"] {
+  opacity: 0.55;
+  pointer-events: none;
+}
+
+.schedule-embed-wrap {
+  overflow: hidden;
+  min-height: 720px;
+  border: 1px solid rgba(230, 221, 208, 0.8);
+  border-radius: var(--radius-sm);
+  background: #f8fbfd;
+}
+
+.schedule-embed-frame {
+  display: block;
+  width: 100%;
+  min-height: 720px;
+  border: 0;
+  background: #fff;
+}
+
+.schedule-placeholder {
+  padding: 1.25rem;
+  border: 1px dashed rgba(111, 186, 223, 0.45);
+  border-radius: var(--radius-sm);
+  background: linear-gradient(180deg, #fbfdff 0%, #f5fafc 100%);
+}
+
+.schedule-placeholder h3 {
+  margin: 0 0 0.75rem;
+  font-size: 1.15rem;
+}
+
+.schedule-placeholder p {
+  margin: 0 0 1rem;
+  color: var(--muted);
+}
+
+.schedule-placeholder-list {
+  margin: 0;
+  padding-left: 1.1rem;
+  color: var(--muted);
+}
+
+.schedule-placeholder-list li + li {
+  margin-top: 0.55rem;
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (min-width: 700px) {
+  .schedule-booking-actions {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+
+  .schedule-steps {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .schedule-types-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .schedule-day-row {
+    grid-template-columns: 110px minmax(0, 1fr);
+    align-items: center;
+  }
+
+  .schedule-form-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .schedule-actions {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .reviews-cta-card {
+    grid-template-columns: minmax(0, 1fr) auto;
+  }
+
+  .hero-actions {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+
+  .services-grid,
+  .testimonials-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .section-showcase {
+    aspect-ratio: 16 / 5;
+  }
+
+  .doctor-layout {
+    grid-template-columns: minmax(260px, 320px) minmax(0, 1fr);
+    gap: 2.25rem;
+  }
+
+  .footer-grid {
+    grid-template-columns: 1.5fr auto;
+    align-items: center;
+  }
+}
+
+@media (min-width: 960px) {
+  .section {
+    padding: 6rem 0;
+  }
+
+  .menu-toggle {
+    display: none;
+  }
+
+  .site-menu {
+    position: static;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 1.2rem;
+    padding: 0;
+    background: transparent;
+    border: 0;
+    box-shadow: none;
+  }
+
+  .site-menu a {
+    padding: 0;
+  }
+
+  .brand {
+    max-width: 225px;
+  }
+
+  .hero-grid,
+  .about-grid,
+  .hours-grid,
+  .contact-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    align-items: center;
+    gap: 2rem;
+  }
+
+  .services-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .schedule-booking-shell {
+    gap: 2rem;
+  }
+
+  .schedule-booking-card {
+    padding: 2rem;
+  }
+
+  .schedule-shell {
+    padding: 2rem;
+  }
+
+  .schedule-types-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .testimonials-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .about-points {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .about-side {
+    gap: 1.25rem;
+  }
+}
