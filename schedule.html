@@ -13,6 +13,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://assets.calendly.com/assets/external/widget.css">
   <link rel="stylesheet" href="styles.css">
 </head>
 <body class="schedule-page">
@@ -64,24 +65,23 @@
       <div class="container">
         <section
           class="schedule-booking-shell"
-          id="google-booking"
-          data-booking-url=""
-          data-embed-url="">
+          id="booking-shell"
+          data-calendly-url="">
           <div class="schedule-booking-copy">
             <p class="eyebrow">Online Booking</p>
-            <h2>Schedule with our Google Calendar booking page.</h2>
+            <h2>Schedule with our online booking page.</h2>
             <p>
-              While the clinic's Google booking link is being connected, you can review our standard weekly appointment hours below and call the office to request a time that works for you.
+              Use our Calendly booking page to view available appointment times and request a visit online. Until it is connected, you can review our standard weekly appointment hours below and call the office to request a time that works for you.
             </p>
           </div>
 
           <div class="schedule-booking-card">
             <div class="schedule-alert schedule-alert-info">
-              Booking confirmations and appointment details will be handled through the official Google Calendar booking page.
+              Booking confirmations and appointment details will be handled through the clinic's official Calendly booking page.
             </div>
 
             <div class="schedule-booking-actions">
-              <a class="button" id="google-booking-link" href="#" target="_blank" rel="noreferrer">Open Booking Page</a>
+              <a class="button" id="booking-link" href="#" target="_blank" rel="noreferrer">Open Booking Page</a>
               <a class="button button-secondary" href="tel:+16292630639">Call Instead</a>
             </div>
 
@@ -152,30 +152,31 @@
               </div>
             </section>
 
-            <p class="schedule-note" id="google-booking-status">
-              Google Calendar booking link not configured yet. Add the clinic's booking URL to activate this page.
+            <p class="schedule-note" id="booking-status">
+              Calendly booking link not configured yet. Add the clinic's booking URL to activate this page.
             </p>
 
-            <div class="schedule-embed-wrap" id="google-booking-embed-wrap" hidden>
-              <iframe
-                id="google-booking-embed"
+            <div class="schedule-embed-wrap" id="booking-embed-wrap" hidden>
+              <div
+                id="calendly-embed"
                 class="schedule-embed-frame"
-                title="Google Calendar booking page"
-                loading="lazy"
-                referrerpolicy="strict-origin-when-cross-origin">
-              </iframe>
+                aria-label="Calendly booking widget">
+              </div>
             </div>
 
-            <div class="schedule-placeholder" id="google-booking-placeholder">
+            <div class="schedule-placeholder" id="booking-placeholder">
               <h3>Booking page placeholder</h3>
               <p>
-                Replace the data attributes for the booking URL and optional embed URL in <code>schedule.html</code> with the official Google Calendar appointment schedule link from the clinic to show real-time openings here.
+                Add the clinic's public Calendly event link in <code>schedule.html</code> to turn this section into a live booking widget with real-time availability.
               </p>
               <ul class="schedule-placeholder-list">
-                <li>Create the appointment schedule inside Google Calendar.</li>
-                <li>Copy the public booking link.</li>
-                <li>Paste it into this page to activate the button and embed.</li>
+                <li>Create the event type inside Calendly.</li>
+                <li>Connect Calendly to the clinic calendar so busy times are blocked automatically.</li>
+                <li>Paste the public Calendly link into the <code>data-calendly-url</code> attribute on this page.</li>
               </ul>
+              <p class="schedule-placeholder-code">
+                Example: <code>data-calendly-url="https://calendly.com/your-clinic/new-patient-visit"</code>
+              </p>
             </div>
           </div>
         </section>
