@@ -1,0 +1,17 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    @apply font-sans bg-white text-slate-900 antialiased leading-relaxed;
+  }
+  @media (max-width: 767px) {
+    body {
+      padding-bottom: 72px;
+    }
+  }
+}
