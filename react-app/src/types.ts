@@ -17,6 +17,9 @@ export interface ClinicData {
   servicos: { titulo: string; descricao: string; icon: string }[]
   doutores: { nome: string; anosExperiencia: string; credenciais: string; imagem?: string }[]
   doutoresDetalhados?: DoutorDetalhado[]
+  formSubmitEmail: string
+  faq: { pergunta: string; resposta: string }[]
+  depoimentos: { texto: string; autor: string; estrelas: number; tempoRelativo: string }[]
 }
 
 export interface DoutorDetalhado {
